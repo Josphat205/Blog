@@ -19,10 +19,8 @@ m = Module.new do
     ENV.fetch('BUNDLER_VERSION', nil)
   end
 
-  # autocorrect_with_disable_uncorrectable?
   def cli_arg_version
-    return unless invoked_as_script? # don't want to hijack other binstubs
-    return unless 'update'.start_with?(ARGV.first || ' ') # must be running `bundle update`
+    # return unless 'update'.start_with?(ARGV.first || ' ') || invoked_as_script? # must be
 
     bundler_version = nil
     update_index = nil
